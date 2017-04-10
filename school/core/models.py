@@ -14,7 +14,7 @@ class Organisation(models.Model):
             return self.full_name
 
     def __str__(self):
-        return self.name
+        return self.full_name
 
     class Meta:
         verbose_name = 'Информация об организации'
