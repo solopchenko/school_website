@@ -5,7 +5,7 @@ class Page(models.Model):
     title = models.CharField(verbose_name="Заголовок", max_length=200)
     slug = models.SlugField(verbose_name="Адрес страницы")
     created_at = models.DateTimeField(verbose_name="Дата создания", auto_now_add=True)
-    updated_at = models.DateField(verbose_name="Дата последнего изменения", auto_now=True)
+    updated_at = models.DateTimeField(verbose_name="Дата последнего изменения", auto_now=True)
 
     parent = models.ForeignKey('self', verbose_name="Родительская страница", on_delete=models.PROTECT, null=True, blank=True)
 
