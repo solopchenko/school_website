@@ -13,4 +13,17 @@
       <h1 class="title title_xxl">{{ page.title }}</h1>
     </div>
 </div>
+
+{% for section in page.sections %}
+<div class="section">
+    <div class="container">
+        {% if section.title %}
+        <h2 class="title title_xl">{{ section.title }}</h2>
+        {% endif %}
+
+        {% autoescape off %} {{ section.content }} {% endautoescape %}
+    </div>
+</div>
+{% endfor %}
+
 {% endblock content %}
