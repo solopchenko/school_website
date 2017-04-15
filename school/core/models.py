@@ -20,12 +20,13 @@ class Organisation(models.Model):
         verbose_name = 'Информация об организации'
         verbose_name_plural = 'Информация об организации'
 
-class Building(models.Model):
+class OrganisationBuilding(models.Model):
     name = models.CharField(verbose_name="Наименование здания", max_length=200)
     address = models.CharField(verbose_name="Адрес", max_length=500)
     phone = models.CharField(verbose_name="Телефон", max_length=25)
     business_hours = models.TextField(verbose_name='Часы работы', max_length=500)
     visiting_hours = models.TextField(verbose_name='Часы приема', max_length=500, blank=True)
+    organisation = models.ForeignKey(Organisation, on_delete=models.PROTECT)
 
     def __str__(self):
         return self.name
