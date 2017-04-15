@@ -42,4 +42,4 @@ class Section(models.Model):
 
     class Meta:
             verbose_name = 'Элемент страницы'
-            verbose_name_plural = 'Элементы страниц'
+            verbose_name_plural = 'Элементы страницы'
