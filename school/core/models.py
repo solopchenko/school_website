@@ -1,11 +1,14 @@
 from django.db import models
+from pages.models import Page
 
 # Create your models here.
+
 class Organisation(models.Model):
     full_name = models.CharField(verbose_name="Полное наименование", max_length=500)
     short_name = models.CharField(verbose_name="Сокращенное наименование", max_length=200, blank=True)
     email = models.EmailField(verbose_name="Электронная почта", blank=True)
     website = models.URLField(verbose_name="Сайт")
+    main_page = models.OneToOneField(Page, verbose_name="Главная страница")
 
     def name(self):
         if self.short_name:

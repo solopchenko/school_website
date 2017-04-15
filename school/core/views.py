@@ -5,5 +5,8 @@ from .models import Organisation
 # Create your views here.
 class HomeView(View):
     def get(self, request):
-        organisation = Organisation.objects.first()
-        return render(request, 'home.html', {'organisation': organisation})
+        page = Organisation.objects.first().main_page
+
+        template = 'page.html'
+        context = {'page': page}
+        return render(request, template, context)
