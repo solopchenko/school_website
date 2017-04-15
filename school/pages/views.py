@@ -10,6 +10,4 @@ class PageView(View):
 
         template = 'page.html'
         context = {'page': page}
-        print(request)
-
         return render(request, template, context)
