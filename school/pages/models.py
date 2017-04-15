@@ -4,6 +4,7 @@ from django.db import models
 class Page(models.Model):
     title = models.CharField(verbose_name="Заголовок", max_length=200)
     slug = models.SlugField(verbose_name="Адрес страницы")
+    url = models.CharField(verbose_name='URL', max_length=2500)
     created_at = models.DateTimeField(verbose_name="Дата создания", auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name="Дата последнего изменения", auto_now=True)
 
