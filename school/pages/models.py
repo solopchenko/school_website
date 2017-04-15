@@ -7,7 +7,7 @@ class Page(models.Model):
     created_at = models.DateTimeField(verbose_name="Дата создания", auto_now_add=True)
     updated_at = models.DateField(verbose_name="Дата последнего изменения", auto_now=True)
 
-    parent = models.ForeignKey('self', verbose_name="Родительская страница", on_delete=PROTECT, null=True, blank=True)
+    parent = models.ForeignKey('self', verbose_name="Родительская страница", on_delete=models.PROTECT, null=True, blank=True)
 
     def sections(self):
         return self.section_set.all()
