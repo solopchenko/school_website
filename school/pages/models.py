@@ -32,8 +32,10 @@ class Page(models.Model):
 
 class Section(models.Model):
     title = models.CharField(verbose_name="Заголовок", max_length=200)
-    anchor = models.SlugField(verbose_name="Якорная ссылка", blank=True)
-    content = models.TextField(verbose_name="Контент", blank=False)
+    show_title = models.BooleanField(verbose_name='Отображать заголовок', help_text='Обычно загловок элемента отображают на странице', default=True)
+    anchor = models.SlugField(verbose_name="Якорная ссылка", help_text='Задаёт уникальный идентификатор элемента на странице', blank=True)
+    content = models.TextField(verbose_name="Контент", help_text='Поле может содержать HTML-тэги', blank=False)
+    full_width = models.BooleanField(verbose_name='Секция во всю ширину', help_text='Обычно используется для слайдеров и карт', default=False)
 
     page = models.ForeignKey(Page, on_delete=models.CASCADE, verbose_name="Страница")
 

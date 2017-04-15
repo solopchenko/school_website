@@ -10,6 +10,9 @@
 .container {
   margin: 0 auto;
   width: 85%;
+  &_full {
+    width: 100%;
+  }
 }
 
 @media (min-width: 550px) {

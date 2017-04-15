@@ -9,6 +9,8 @@
 .container {
   margin: 0 auto;
   width: 85%; }
+  .container_full {
+    width: 100%; }
 
 @media (min-width: 550px) {
   .row__col {

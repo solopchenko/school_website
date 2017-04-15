@@ -15,9 +15,9 @@
 </div>
 
 {% for section in page.sections %}
-<div class="section">
+<div class="section {% if section.full_width %} container_full {% endif %}" {% if section.anchor %} id="{{ section.anchor }}" {% endif %}>
     <div class="container">
-        {% if section.title %}
+        {% if section.show_title %}
         <h2 class="title title_xl">{{ section.title }}</h2>
         {% endif %}
 
