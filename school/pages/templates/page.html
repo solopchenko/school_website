@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
 
+{% block title %} {{ page.title }} {% endblock title %}
+
+{% block breadcrumbs %}
+→ <h1 class="breadcrumbs__item breadcrumbs__item_current">{{ page.title }}</h1>
+{% endblock breadcrumbs %}
+
 
 {% block content %}
-<p>Title: {{ page.title }}</p>
-<p>Slug: {{ page.slug }}</p>
-<p>Created at: {{ page.created_at }}</p>
-<p>Updated at: {{ page.updated_at }}</p>
-
-
+<div class="section">
+    <div class="container">
+      <h1 class="title title_xxl">{{ page.title }}</h1>
+    </div>
+</div>
 {% endblock content %}

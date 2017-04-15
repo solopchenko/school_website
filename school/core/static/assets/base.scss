@@ -1,0 +1,112 @@
+$black: #222;
+$blue: #448aff;
+$red: #ef5350;
+$lightgray: #888;
+$gray: #666;
+
+
+$mobile: 550px;
+
+@mixin respond-to($media) {
+  @if $media == mobile {
+    @media only screen and (max-width: $mobile - 1) { @content; }
+  }
+  @else if $media == desktop {
+    @media only screen and (min-width: $mobile) { @content; }
+  }
+}
+
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+}
+body {
+  margin: 0;
+  font-size: 1.6em;
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, 'Open Sans', Arial, sans-serif;
+  color: $black;
+}
+
+.title {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  line-height: 1.4;
+  &_xxl {
+    font-size: 4.2rem;
+    @include respond-to(mobile) { font-size: 3.6rem; }
+  }
+  &_xl {
+    font-size: 3.8rem;
+    @include respond-to(mobile) { font-size: 3.2rem; }
+  }
+  &_l {
+    font-size: 3.4rem;
+    @include respond-to(mobile) { font-size: 2.6rem; }
+  }
+  &_m {
+    font-size: 3.0rem;
+    @include respond-to(mobile) { font-size: 2.4rem; }
+  }
+  &_s {
+    font-size: 2.6rem;
+    @include respond-to(mobile) { font-size: 2.0rem; }
+  }
+  &_xs {
+    font-size: 2.4rem;
+    @include respond-to(mobile) { font-size: 1.8rem; }
+  }
+}
+
+.link {
+  color: $blue;
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  &:hover, &:active {
+    color: $red;
+    border-color: $red;
+  }
+}
+
+
+.breadcrumbs {
+  padding: 1rem 2rem;
+  background-color: #fefefe;
+  width: 100%;
+  &__item {
+    display: inline;
+    font-size: 1.4rem;
+    font-weight: normal;
+    &_current {
+      color: $lightgray;
+    }
+    &_logo {
+      font-size: 2rem;
+      border-bottom: none;
+      line-height: 2.2rem;
+    }
+  }
+}
+
+.footer {
+  width: 100%;
+  margin-top: 4rem;
+  border-top: 1px solid #eee;
+  padding: 4rem 0;
+  background: linear-gradient(to bottom, #fff, #ccc);
+  font-size: 1.4rem;
+}
+
+.copyright {
+  margin-top: 1rem;
+  &__title {
+    color: $black;
+    margin-bottom: 1rem;
+  }
+  &__rights, &__madeby {
+    color: $lightgray;
+    font-size: 1.2rem;
+  }
+}

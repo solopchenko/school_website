@@ -4,7 +4,7 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <title>Title</title>
+  <title>{% block title %}{% endblock title %}</title>
 
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -12,9 +12,22 @@
 
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="{% static 'base.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/setka.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/base.css' %}">
 </head>
 <body>
-  {% block content %}{% endblock content %}
+  <div class="page">
+
+    <div class="section">
+      <div class="container breadcrumbs">
+        <a class="breadcrumbs__item link link_blue" href="/">{{ organisation.name }}</a>{% block breadcrumbs %}{% endblock breadcrumbs %}
+      </div>
+    </div>
+
+
+    {% block content %}{% endblock content %}
+
+    {% include 'footer.html' %}
+  </div>
 </body>
 </html>

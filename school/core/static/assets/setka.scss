@@ -1,0 +1,144 @@
+.page {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow: hidden;
+  box-shadow: 0 0 50px #888;
+}
+
+.container {
+  margin: 0 auto;
+  width: 85%;
+}
+
+@media (min-width: 550px) {
+  .row {
+    &__col {
+      width: 100%;
+      float: left;
+      box-sizing: border-box;
+      margin-left: 4%;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &_size {
+        &_one {
+          width: 4.66666666667%;
+        }
+        &_two {
+          width: 13.3333333333%;
+        }
+        &_three {
+          width: 22%;
+        }
+        &_four {
+          width: 30.6666666667%;
+        }
+        &_five {
+          width: 39.3333333333%;
+        }
+        &_six {
+          width: 48%;
+        }
+        &_seven {
+          width: 56.6666666667%;
+        }
+        &_eight {
+          width: 65.3333333333%;
+        }
+        &_nine {
+          width: 74.0%;
+        }
+        &_ten {
+          width: 82.6666666667%;
+        }
+        &_eleven {
+          width: 91.3333333333%;
+        }
+        &_twelve {
+          width: 100%;
+          margin-left: 0;
+        }
+        &_one-half {
+          width: 48%;
+        }
+        &_one-third {
+          width: 30.6666666667%;
+        }
+        &_two-thirds {
+          width: 65.3333333333%;
+        }
+      }
+
+      &_offset {
+        &_one, &_one:first-child {
+          margin-left: 8.66666666667%;
+        }
+        &_two, &_two:first-child {
+          margin-left: 17.3333333333%;
+        }
+        &_three, &_three:first-child {
+          margin-left: 26%;
+        }
+        &_four, &_four:first-child {
+          margin-left: 34.6666666667%;
+        }
+        &_five, &_five:first-child {
+          margin-left: 43.3333333333%;
+        }
+        &_six, &_six:first-child {
+          margin-left: 52%;
+        }
+        &_seven, &_seven:first-child {
+          margin-left: 60.6666666667%;
+        }
+        &_eight, &_eight:first-child {
+          margin-left: 69.3333333333%;
+        }
+        &_nine, &_nine:first-child {
+          margin-left: 78.0%;
+        }
+        &_ten, &_ten:first-child {
+          margin-left: 86.6666666667%;
+        }
+        &_eleven, &_eleven:first-child {
+          margin-left: 95.3333333333%;
+        }
+        &_one-half, &_one-half:first-child {
+          margin-left: 52%;
+        }
+        &_one-third, &_one-third:first-child {
+          margin-left: 34.6666666667%;
+        }
+        &_two-thirds, &_two-thirds:first-child {
+          margin-left: 69.3333333333%;
+        }
+      }
+    }
+  }
+}
+
+.container:after,
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Larger than mobile */
+@media (min-width: 400px) {}
+
+/* Larger than phablet (also point when grid becomes active) */
+@media (min-width: 550px) {}
+
+/* Larger than tablet */
+@media (min-width: 750px) {}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {}
