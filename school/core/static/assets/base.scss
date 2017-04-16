@@ -112,6 +112,23 @@ body {
   }
 }
 
+.blackboard-item {
+  display: block;
+  cursor: pointer;
+  color: $blue;
+  text-decoration: none;
+  margin-bottom: 2rem;
+  &:hover, &:active {
+    color: $red;
+  }
+  &__date {
+    color: $lightgray;
+  }
+  &__title {
+    font-size: 1.8rem;
+  }
+}
+
 .footer {
   width: 100%;
   margin-top: 4rem;

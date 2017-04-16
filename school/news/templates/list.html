@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Новости и объявления{% endblock title %}
+
+{% block breadcrumbs %}
+  &rarr; <h1 class="breadcrumbs__item breadcrumbs__item_current">Новости и объявления</h1>
+{% endblock breadcrumbs %}
+
+{% block content %}
+  <div class="section">
+    <div class="container">
+      <h2 class="title title_xl">Новости и объявления</h2>
+      <div class="blackboard-list">
+        {% for a in articles %}
+          <a class="blackboard-item" href="/news/{{ a.id }}">
+            <div class="blackboard-item__title">{{ a.title }}</div>
+            <div class="blackboard-item__date">{{ a.created_at }}</div>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock content %}

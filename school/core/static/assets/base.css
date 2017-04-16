@@ -88,6 +88,19 @@ body {
     .article__social-buttons {
       text-align: center; } }
 
+.blackboard-item {
+  display: block;
+  cursor: pointer;
+  color: #448aff;
+  text-decoration: none;
+  margin-bottom: 2rem; }
+  .blackboard-item:hover, .blackboard-item:active {
+    color: #ef5350; }
+  .blackboard-item__date {
+    color: #888; }
+  .blackboard-item__title {
+    font-size: 1.8rem; }
+
 .footer {
   width: 100%;
   margin-top: 4rem;
