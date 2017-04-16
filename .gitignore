@@ -3,3 +3,5 @@ __pycache__
 schoolenv
 db.sqlite3
 .DS_Store
+.sass-cache
+migrations
