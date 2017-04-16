@@ -1,5 +1,7 @@
-from core.models import Organisation
+from core.models import Site, Organisation
 
 def organisation(request):
+    site = Site.objects.all().first()
     organisation = Organisation.objects.all().first()
-    return {'organisation': organisation}
+
+    return {'site': site, 'organisation': organisation}
