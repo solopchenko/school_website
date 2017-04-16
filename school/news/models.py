@@ -1,4 +1,5 @@
 from django.db import models
+from .managers import ArticleManager
 
 # Create your models here.
 
@@ -9,6 +10,8 @@ class Article(models.Model):
     created_at = models.DateTimeField(verbose_name='Дата создания', auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name='Дата обновления', auto_now=True)
     published = models.BooleanField(verbose_name='Опубликовать', default=True)
+
+    objects = ArticleManager()
 
     def __str__(self):
         return self.title
