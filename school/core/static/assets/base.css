@@ -70,6 +70,24 @@ body {
       border-bottom: none;
       line-height: 2.2rem; }
 
+.article__title {
+  margin-bottom: 1rem; }
+.article__date {
+  color: #888;
+  margin-bottom: 2rem; }
+.article__announcement {
+  font-family: Georgia, Times New Roman, Times, serif;
+  font-size: 2.0rem;
+  font-style: italic; }
+.article__content {
+  font-size: 1.6rem;
+  line-height: 1.6; }
+.article__social-buttons {
+  width: 100%; }
+  @media only screen and (max-width: 549px) {
+    .article__social-buttons {
+      text-align: center; } }
+
 .footer {
   width: 100%;
   margin-top: 4rem;
