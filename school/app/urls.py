@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from core.views import HomeView
+from pages.views import PageView
 
 urlpatterns = [
 
@@ -27,4 +28,7 @@ urlpatterns = [
     #
     url(r'^$', HomeView.as_view()),
 
+    # Страницы
+    #
+    url(r'^(?P<page_url>[/\w-]*)/$', PageView.as_view()),
 ]
