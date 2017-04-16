@@ -1,4 +1,7 @@
 $black: #222;
+$blue: #448aff;
+$red: #ef5350;
+$lightgray: #888;
 
 $mobile: 550px;
 
@@ -51,5 +54,37 @@ body {
   &_xs {
     font-size: 2.4rem;
     @include respond-to(mobile) { font-size: 1.8rem; }
+  }
+}
+
+.link {
+  color: $blue;
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  &:hover, &:active {
+    color: $red;
+    border-color: $red;
+  }
+}
+
+.footer {
+  width: 100%;
+  margin-top: 4rem;
+  border-top: 1px solid #eee;
+  padding: 4rem 0;
+  background: linear-gradient(to bottom, #fff, #ccc);
+  font-size: 1.4rem;
+}
+
+.copyright {
+  margin-top: 1rem;
+  &__title {
+    color: $black;
+    margin-bottom: 1rem;
+  }
+  &__rights, &__madeby {
+    color: $lightgray;
+    font-size: 1.2rem;
   }
 }

@@ -46,4 +46,30 @@ body {
       .title_xs {
         font-size: 1.8rem; } }
 
+.link {
+  color: #448aff;
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 1px solid transparent; }
+  .link:hover, .link:active {
+    color: #ef5350;
+    border-color: #ef5350; }
+
+.footer {
+  width: 100%;
+  margin-top: 4rem;
+  border-top: 1px solid #eee;
+  padding: 4rem 0;
+  background: linear-gradient(to bottom, #fff, #ccc);
+  font-size: 1.4rem; }
+
+.copyright {
+  margin-top: 1rem; }
+  .copyright__title {
+    color: #222;
+    margin-bottom: 1rem; }
+  .copyright__rights, .copyright__madeby {
+    color: #888;
+    font-size: 1.2rem; }
+
 /*# sourceMappingURL=base.css.map */
