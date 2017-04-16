@@ -17,6 +17,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from core.views import HomeView
 from pages.views import PageView
+from news.views import ArticleView
 
 urlpatterns = [
 
@@ -27,6 +28,10 @@ urlpatterns = [
     # Главная страница
     #
     url(r'^$', HomeView.as_view()),
+
+    # Новости
+    #
+    url(r'^news/(?P<article_id>[0-9]+)/$', ArticleView.as_view()),
 
     # Страницы
     #
