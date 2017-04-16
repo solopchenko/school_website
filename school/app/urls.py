@@ -15,7 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from core.views import HomeView
 
 urlpatterns = [
+
+    # Админка
+    #
     url(r'^admin/', admin.site.urls),
+
+    # Главная страница
+    #
+    url(r'^$', HomeView.as_view()),
+
 ]
