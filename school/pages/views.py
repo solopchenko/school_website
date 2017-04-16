@@ -9,5 +9,5 @@ class PageView(View):
         page = get_object_or_404(Page, url=page_url)
 
         context = { 'page': page }
-        template = 'page.html'
+        template = 'pages/page.html'
         return render(request, template, context)

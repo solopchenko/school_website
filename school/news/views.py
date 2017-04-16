@@ -9,7 +9,7 @@ class ArticleView(View):
         article = get_object_or_404(Article, id=article_id, published=True)
 
         context = { 'article': article }
-        template = 'article.html'
+        template = 'news/article.html'
         return render(request, template, context)
 
 
@@ -17,5 +17,5 @@ def article_list(request):
     articles = Article.objects.published()
 
     context = { 'articles': articles }
-    template = 'list.html'
+    template = 'news/list.html'
     return render(request, template, context)

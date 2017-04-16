@@ -10,5 +10,5 @@ class HomeView(View):
         articles = Article.objects.published()
 
         context = { 'page': page, 'articles': articles }
-        template = 'home.html'
+        template = 'pages/home.html'
         return render(request, template, context)
