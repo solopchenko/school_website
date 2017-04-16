@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ site.title }} {% endblock title %}
+
+{% block content %}
+  {% if articles.count > 0 %}
+    <div class="section section_blackboard">
+        <div class="container">
+            <h2 class="title title_xl">Новости и объявления</h2>
+            <div class="row">
+                <div class="row__col row__col_size_one-half">
+                    <div class="blackboard-list">
+                        {% for a in articles %}
+                        <a class="blackboard-item" href="/news/{{ a.id }}">
+                            <div class="blackboard-item__title">{{ a.title }}</div>
+                            <div class="blackboard-item__date">{{ a.created_at }}</div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  {% endif %}
+
+  {% for section in page.sections %}
+    <div class="section {% if section.full_width %} container_full {% endif %}" {% if section.anchor %} id="{{ section.anchor }}" {% endif %}>
+        <div class="container">
+            {% if section.show_title %}
+              <h2 class="title title_xl">{{ section.title }}</h2>
+            {% endif %}
+            {% autoescape off %} {{ section.content }} {% endautoescape %}
+        </div>
+    </div>
+  {% endfor %}
+
+{% endblock content %}
