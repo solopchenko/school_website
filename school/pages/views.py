@@ -7,7 +7,7 @@ from .models import Page
 class PageView(View):
     def get(self, request, page_url, *args, **kwargs):
         page = get_object_or_404(Page, url=page_url)
-        print(page_url)
-        context = {'page': page}
+
+        context = { 'page': page }
         template = 'page.html'
         return render(request, template, context)
