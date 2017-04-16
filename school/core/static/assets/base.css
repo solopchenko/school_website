@@ -55,6 +55,21 @@ body {
     color: #ef5350;
     border-color: #ef5350; }
 
+.breadcrumbs {
+  padding: 1rem 2rem;
+  background-color: #fefefe;
+  width: 100%; }
+  .breadcrumbs__item {
+    display: inline;
+    font-size: 1.4rem;
+    font-weight: normal; }
+    .breadcrumbs__item_current {
+      color: #888; }
+    .breadcrumbs__item_logo {
+      font-size: 2rem;
+      border-bottom: none;
+      line-height: 2.2rem; }
+
 .footer {
   width: 100%;
   margin-top: 4rem;

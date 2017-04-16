@@ -17,6 +17,13 @@
 </head>
 <body>
   <div class="page">
+    <div class="section">
+      <div class="container breadcrumbs">
+        <a class="breadcrumbs__item link link_blue" href="/">{{ site.title }}</a>
+        {% block breadcrumbs %}{% endblock breadcrumbs %}
+      </div>
+    </div>
+
     {% block content %}{% endblock content %}
 
     {% include 'footer.html' %}
