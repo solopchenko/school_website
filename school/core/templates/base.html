@@ -4,7 +4,7 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <title>{{ site.title }}</title>
+  <title>{% block title %}{% endblock title %}</title>
 
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -12,9 +12,12 @@
 
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="{% static 'assets/setka.css' %}">
   <link rel="stylesheet" href="{% static 'assets/base.css' %}">
 </head>
 <body>
-  {{ site.description }}
+  <div class="page">
+    {% block content %}{% endblock content %}
+  </div>
 </body>
 </html>

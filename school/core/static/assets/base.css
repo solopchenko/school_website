@@ -1,3 +1,49 @@
+html {
+  font-size: 62.5%;
+  /* 1rem = 10px */ }
 
+body {
+  margin: 0;
+  font-size: 1.6em;
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, 'Open Sans', Arial, sans-serif;
+  color: #222; }
+
+.title {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  line-height: 1.4; }
+  .title_xxl {
+    font-size: 4.2rem; }
+    @media only screen and (max-width: 549px) {
+      .title_xxl {
+        font-size: 3.6rem; } }
+  .title_xl {
+    font-size: 3.8rem; }
+    @media only screen and (max-width: 549px) {
+      .title_xl {
+        font-size: 3.2rem; } }
+  .title_l {
+    font-size: 3.4rem; }
+    @media only screen and (max-width: 549px) {
+      .title_l {
+        font-size: 2.6rem; } }
+  .title_m {
+    font-size: 3.0rem; }
+    @media only screen and (max-width: 549px) {
+      .title_m {
+        font-size: 2.4rem; } }
+  .title_s {
+    font-size: 2.6rem; }
+    @media only screen and (max-width: 549px) {
+      .title_s {
+        font-size: 2.0rem; } }
+  .title_xs {
+    font-size: 2.4rem; }
+    @media only screen and (max-width: 549px) {
+      .title_xs {
+        font-size: 1.8rem; } }
 
 /*# sourceMappingURL=base.css.map */

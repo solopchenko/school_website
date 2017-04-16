@@ -1,0 +1,94 @@
+.page {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow: hidden;
+  box-shadow: 0 0 50px #888; }
+
+.container {
+  margin: 0 auto;
+  width: 85%; }
+  .container_full {
+    width: 100%; }
+
+@media (min-width: 550px) {
+  .row__col {
+    width: 100%;
+    float: left;
+    box-sizing: border-box;
+    margin-left: 4%; }
+    .row__col:first-child {
+      margin-left: 0; }
+    .row__col_size_one {
+      width: 4.66666666667%; }
+    .row__col_size_two {
+      width: 13.3333333333%; }
+    .row__col_size_three {
+      width: 22%; }
+    .row__col_size_four {
+      width: 30.6666666667%; }
+    .row__col_size_five {
+      width: 39.3333333333%; }
+    .row__col_size_six {
+      width: 48%; }
+    .row__col_size_seven {
+      width: 56.6666666667%; }
+    .row__col_size_eight {
+      width: 65.3333333333%; }
+    .row__col_size_nine {
+      width: 74.0%; }
+    .row__col_size_ten {
+      width: 82.6666666667%; }
+    .row__col_size_eleven {
+      width: 91.3333333333%; }
+    .row__col_size_twelve {
+      width: 100%;
+      margin-left: 0; }
+    .row__col_size_one-half {
+      width: 48%; }
+    .row__col_size_one-third {
+      width: 30.6666666667%; }
+    .row__col_size_two-thirds {
+      width: 65.3333333333%; }
+    .row__col_offset_one, .row__col_offset_one:first-child {
+      margin-left: 8.66666666667%; }
+    .row__col_offset_two, .row__col_offset_two:first-child {
+      margin-left: 17.3333333333%; }
+    .row__col_offset_three, .row__col_offset_three:first-child {
+      margin-left: 26%; }
+    .row__col_offset_four, .row__col_offset_four:first-child {
+      margin-left: 34.6666666667%; }
+    .row__col_offset_five, .row__col_offset_five:first-child {
+      margin-left: 43.3333333333%; }
+    .row__col_offset_six, .row__col_offset_six:first-child {
+      margin-left: 52%; }
+    .row__col_offset_seven, .row__col_offset_seven:first-child {
+      margin-left: 60.6666666667%; }
+    .row__col_offset_eight, .row__col_offset_eight:first-child {
+      margin-left: 69.3333333333%; }
+    .row__col_offset_nine, .row__col_offset_nine:first-child {
+      margin-left: 78.0%; }
+    .row__col_offset_ten, .row__col_offset_ten:first-child {
+      margin-left: 86.6666666667%; }
+    .row__col_offset_eleven, .row__col_offset_eleven:first-child {
+      margin-left: 95.3333333333%; }
+    .row__col_offset_one-half, .row__col_offset_one-half:first-child {
+      margin-left: 52%; }
+    .row__col_offset_one-third, .row__col_offset_one-third:first-child {
+      margin-left: 34.6666666667%; }
+    .row__col_offset_two-thirds, .row__col_offset_two-thirds:first-child {
+      margin-left: 69.3333333333%; } }
+.container:after,
+.row:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+/* Larger than mobile */
+/* Larger than phablet (also point when grid becomes active) */
+/* Larger than tablet */
+/* Larger than desktop */
+/* Larger than Desktop HD */
+
+/*# sourceMappingURL=setka.css.map */
