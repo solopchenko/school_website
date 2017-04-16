@@ -11,3 +11,11 @@ class ArticleView(View):
         context = { 'article': article }
         template = 'article.html'
         return render(request, template, context)
+
+
+def article_list(request):
+    articles = Article.objects.published()
+
+    context = { 'articles': articles }
+    template = 'list.html'
+    return render(request, template, context)
