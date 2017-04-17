@@ -1,4 +1,5 @@
 from django.db import models
+from .ulils import get_slide_upload_to
 
 # Create your models here.
 class Page(models.Model):
@@ -12,6 +13,9 @@ class Page(models.Model):
 
     def sections(self):
         return self.section_set.all()
+
+    def slider(self):
+        return self.pageslide_set.all()
 
     def parents(self):
         pages = []
@@ -35,7 +39,6 @@ class Section(models.Model):
     anchor = models.SlugField(verbose_name="Якорная ссылка", help_text='Задаёт уникальный идентификатор элемента на странице', blank=True)
     content = models.TextField(verbose_name="Контент", help_text='Поле может содержать HTML-тэги', blank=False)
     full_width = models.BooleanField(verbose_name='Секция во всю ширину', help_text='Обычно используется для слайдеров и карт', default=False)
-
     page = models.ForeignKey(Page, on_delete=models.CASCADE, verbose_name="Страница")
 
     def __str__(self):
@@ -44,3 +47,17 @@ class Section(models.Model):
     class Meta:
             verbose_name = 'Элемент страницы'
             verbose_name_plural = 'Элементы страницы'
+
+class Slide(models.Model):
+    page = models.ForeignKey(Page, on_delete=models.CASCADE, verbose_name="Страница")
+    background_image = models.FileField(verbose_name="Фоновое изображение", upload_to=get_slide_upload_to)
+    title = models.CharField(verbose_name="Заголовок", max_length=200)
+    subtitle = models.CharField(verbose_name="Подзаголовок", max_length=500, blank=True)
+    link = models.URLField(verbose_name='Ссылка на страницу', blank=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Элемент слайдера'
+        verbose_name_plural = 'Слайдер'
