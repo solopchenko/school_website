@@ -1,5 +1,5 @@
 from django.db import models
-from .ulils import get_slide_upload_to
+from .utils import get_slide_upload_to
 
 # Create your models here.
 class Page(models.Model):
