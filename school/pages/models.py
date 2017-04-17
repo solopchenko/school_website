@@ -15,7 +15,7 @@ class Page(models.Model):
         return self.section_set.all()
 
     def slider(self):
-        return self.pageslide_set.all()
+        return self.slide_set.all()
 
     def parents(self):
         pages = []
