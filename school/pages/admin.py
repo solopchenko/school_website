@@ -1,11 +1,16 @@
 
 from django.contrib import admin
-from .models import Page, Section
+from .models import Page, Section, Slide
 
 # Register your models here.
 
 class SectionInline(admin.StackedInline):
     model = Section
+    extra = 0
+
+class SlideInLine(admin.TabularInline):
+    model = Slide
+    fields = ('title', 'subtitle', 'link', 'background_image', )
     extra = 0
 
 
@@ -15,7 +20,7 @@ class PageAdmin(admin.ModelAdmin):
     list_display = ('title', 'url', 'created_at', 'updated_at',)
     prepopulated_fields = {'slug': ('title', )}
 
-    inlines = (SectionInline, )
+    inlines = (SectionInline, SlideInLine)
 
     def save_model(self, request, obj, form, change):
 
