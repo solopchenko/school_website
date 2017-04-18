@@ -1,4 +1,7 @@
 from django.db import models
+from django.db.models.signals import post_delete, pre_save, post_save
+from django.dispatch import receiver
+
 from .utils import get_slide_upload_to
 
 # Create your models here.
@@ -61,3 +64,21 @@ class Slide(models.Model):
     class Meta:
         verbose_name = 'Элемент слайдера'
         verbose_name_plural = 'Слайдер'
+
+#Автоматическое удаление изображения слайдера при удалении слайда
+@receiver(post_delete, sender=Slide)
+def auto_delete_file_on_delete(sender, instance, **kwargs):
+    if instance.background_image:
+        instance.background_image.delete(save=False)
+
+#Автоматическое удаление старого изображения слайдера при изменении слайда
+@receiver(pre_save, sender=Slide)
+def auto_delte_file_on_change(sender, instance, **kwargs):
+    #Если изменяем модель
+    if instance.pk:
+        old_instance = Slide.objects.get(pk=instance.pk)
+        old_background_image = old_instance.background_image if old_instance.background_image else None
+        new_background_image = instance.background_image
+
+        if not old_background_image == new_background_image:
+            old_background_image.delete(save=False)
