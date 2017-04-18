@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'core',
     'pages',
     'news',
+    'staff',
 ]
 
 MIDDLEWARE = [
