@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from .utils import get_user_profile_photo_upload_to
 
 # Create your models here.
 class UserProfile(models.Model):
@@ -7,7 +8,7 @@ class UserProfile(models.Model):
     last_name = models.CharField(max_length=50, verbose_name="Фамилия")
     first_name = models.CharField(max_length=50, verbose_name="Имя")
     middle_name = models.CharField(max_length=50, verbose_name="Отчество", blank=True)
-    photo = models.FileField(verbose_name='Фотография', blank=True)
+    photo = models.FileField(verbose_name='Фотография', upload_to=get_user_profile_photo_upload_to, blank=True)
     email = models.EmailField(verbose_name='Электронная почта', blank=True)
     phone = models.CharField(max_length=20, verbose_name='Телефон', blank=True)
     office = models.CharField(max_length=100, verbose_name='Кабинет')
