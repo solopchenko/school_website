@@ -1,10 +1,10 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.conf import settings
 from .utils import get_user_profile_photo_upload_to
 
 # Create your models here.
 class UserProfile(models.Model):
-    login = models.OneToOneField(User, parent_link=True, on_delete=models.CASCADE, verbose_name="Логин (пользователь)")
+    login = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Логин")
     last_name = models.CharField(max_length=50, verbose_name="Фамилия")
     first_name = models.CharField(max_length=50, verbose_name="Имя")
     middle_name = models.CharField(max_length=50, verbose_name="Отчество", blank=True)
