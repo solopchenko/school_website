@@ -16,3 +16,13 @@ class UserAdmin(BaseUserAdmin):
 #Приложение auth
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
+
+#class UserInLine(admin.StackedInline):
+#     model = settings.AUTH_USER_MODEL
+
+class UserProfileAdmin(admin.ModelAdmin):
+    #inlines = (UserInLine, )
+    list_display = ('full_name', 'login', 'office', )
+
+#Приложение staff
+admin.site.register(UserProfile, UserProfileAdmin)
