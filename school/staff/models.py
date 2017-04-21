@@ -15,7 +15,7 @@ class Postion(models.Model):
         verbose_name_plural = 'Должности'
 
 
-class UserProfile(models.Model):
+class Person(models.Model):
     login = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Логин")
     last_name = models.CharField(max_length=50, verbose_name="Фамилия")
     first_name = models.CharField(max_length=50, verbose_name="Имя")
