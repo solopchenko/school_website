@@ -25,7 +25,7 @@ class PersonAdmin(admin.ModelAdmin):
     list_display = ('full_name', 'login', 'office', )
     fieldsets = (
         (None,
-            {'fields': ('login', )}
+            {'fields': ('login', 'positions', )}
         ),
         ('Личная информация',
             {'fields': ('last_name', 'first_name', 'middle_name', 'education', 'teaching_experience', )}

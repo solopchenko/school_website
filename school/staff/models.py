@@ -7,6 +7,9 @@ class Postion(models.Model):
     name = models.CharField(verbose_name="Наименование должности", max_length=200)
     is_chief = models.BooleanField(verbose_name="Администрация", default=False)
 
+    def persons(self):
+        return self.person_set.all()
+
     def __str__(self):
         return self.name
 
@@ -26,12 +29,20 @@ class Person(models.Model):
     office = models.CharField(max_length=100, verbose_name='Кабинет')
     education = models.CharField(max_length=500, verbose_name='Образование', blank=True)
     teaching_experience = models.CharField(max_length=200, verbose_name='Педагогический стаж', blank=True)
+    positions = models.ManyToManyField(Postion, verbose_name="Должности", blank=True)
 
     def full_name(self):
         if self.middle_name:
             return self.last_name + ' ' + self.first_name + ' ' + self.middle_name
         else:
             return self.last_name + ' ' + self.first_name
+
+    def get_positions(self):
+        positions = self.positions.all()
+        str_positions = positions[:1]
+        for position in positions[1:]:
+            str_positions = str_positions + ', ' + position
+        return str_positions
 
     def __str__(self):
         return self.full_name()
