@@ -3,6 +3,18 @@ from django.conf import settings
 from .utils import get_user_profile_photo_upload_to
 
 # Create your models here.
+class Postion(models.Model):
+    name = models.CharField(verbose_name="Наименование должности", max_length=200)
+    is_chief = models.BooleanField(verbose_name="Администрация", default=False)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Должность'
+        verbose_name_plural = 'Должности'
+
+
 class UserProfile(models.Model):
     login = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Логин")
     last_name = models.CharField(max_length=50, verbose_name="Фамилия")
