@@ -1,9 +1,11 @@
 from django.db import models
+from django.conf import settings
 from .managers import ArticleManager
 
 # Create your models here.
 
 class Article(models.Model):
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT, verbose_name='Автор')
     title = models.CharField(verbose_name='Заголовок', max_length=200)
     announcement = models.TextField(verbose_name='Анонс', max_length=500, help_text='Отображается вверху новости. Форматирование текста <b>не поддерживается.</b>')
     content = models.TextField(verbose_name='Контент')
