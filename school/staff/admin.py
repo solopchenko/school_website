@@ -23,6 +23,17 @@ admin.site.register(User, UserAdmin)
 class UserProfileAdmin(admin.ModelAdmin):
     #inlines = (UserInLine, )
     list_display = ('full_name', 'login', 'office', )
+    fieldsets = (
+        (None,
+            {'fields': ('login', )}
+        ),
+        ('Личная информация',
+            {'fields': ('last_name', 'first_name', 'middle_name', 'education', 'teaching_experience', )}
+        ),
+        ('Контактная информация',
+            {'fields': ('office', 'email', 'phone',)}
+        ),
+    )
 
 #Приложение staff
 admin.site.register(UserProfile, UserProfileAdmin)
