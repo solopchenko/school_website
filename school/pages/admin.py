@@ -16,9 +16,10 @@ class SlideInLine(admin.TabularInline):
 
 class PageAdmin(admin.ModelAdmin):
     fields = ('author', 'title', 'slug', 'parent', 'url', 'is_published', 'created_at', 'updated_at', )
+    prepopulated_fields = {'slug': ('title', )}
     readonly_fields = ('author', 'url', 'created_at', 'updated_at', )
     list_display = ('title', 'url', 'is_published', 'created_at', 'updated_at',)
-    prepopulated_fields = {'slug': ('title', )}
+    list_filter = ('is_published', 'author__person', )
 
     inlines = (SectionInline, SlideInLine)
 
