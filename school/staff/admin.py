@@ -23,6 +23,8 @@ admin.site.register(User, UserAdmin)
 class PersonAdmin(admin.ModelAdmin):
     #inlines = (UserInLine, )
     list_display = ('full_name', 'login', 'office', )
+    list_filter = ('login__is_active', 'login__is_superuser', )
+    filter_horizontal = ('positions', )
     fieldsets = (
         (None,
             {'fields': ('login', 'positions', )}
