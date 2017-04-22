@@ -31,6 +31,7 @@ class PageAdmin(admin.ModelAdmin):
             obj.url = obj.parent.url + '/' + obj.slug
         else:
             obj.url = obj.slug
-        obj.save()
+            
+        super(PageAdmin, self).save_model(request, obj, form, change)
 
 admin.site.register(Page, PageAdmin)
