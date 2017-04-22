@@ -12,4 +12,10 @@ class ArticleAdmin(admin.ModelAdmin):
             obj.author = request.user
         super(ArticleAdmin, self).save_model(request, obj, form, change)
 
+    def get_queryset(self, request):
+        qs = super(ArticleAdmin, self).get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(author=request.user)
+
 admin.site.register(Article, ArticleAdmin)
