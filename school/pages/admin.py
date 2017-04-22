@@ -23,6 +23,9 @@ class PageAdmin(admin.ModelAdmin):
     inlines = (SectionInline, SlideInLine)
 
     def save_model(self, request, obj, form, change):
+        if not hasattr(obj, 'author'):
+            obj.author = request.user
+
         obj.slug = obj.slug.lower()
         if obj.parent:
             obj.url = obj.parent.url + '/' + obj.slug
