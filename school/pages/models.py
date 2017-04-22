@@ -2,8 +2,8 @@ from django.db import models
 from django.conf import settings
 from django.db.models.signals import post_delete, pre_save, post_save
 from django.dispatch import receiver
-
 from .utils import get_slide_upload_to
+from .managers import PageManager
 
 # Create your models here.
 class Page(models.Model):
@@ -14,8 +14,9 @@ class Page(models.Model):
     created_at = models.DateTimeField(verbose_name="Дата создания", auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name="Дата последнего изменения", auto_now=True)
     is_published = models.BooleanField(verbose_name='Опубликовать', default=True)
-
     parent = models.ForeignKey('self', verbose_name="Родительская страница", on_delete=models.PROTECT, null=True, blank=True)
+
+    objects = PageManager()
 
     def sections(self):
         return self.section_set.all()
