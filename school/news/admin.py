@@ -3,9 +3,9 @@ from .models import Article
 
 # Register your models here.
 class ArticleAdmin(admin.ModelAdmin):
-    fields = ('author', 'created_at', 'updated_at', 'title', 'announcement', 'content', 'published', )
+    fields = ('author', 'created_at', 'updated_at', 'title', 'announcement', 'content', 'is_published', )
     readonly_fields = ('author', 'created_at', 'updated_at', )
-    list_display = ('title', 'published', 'created_at', 'updated_at', )
+    list_display = ('title', 'is_published', 'created_at', 'updated_at', )
 
     def save_model(self, request, obj, form, change):
         if not hasattr(obj, 'author'):
