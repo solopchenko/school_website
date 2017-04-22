@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 from django.db.models.signals import post_delete, pre_save, post_save
 from django.dispatch import receiver
 
@@ -6,6 +7,7 @@ from .utils import get_slide_upload_to
 
 # Create your models here.
 class Page(models.Model):
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT, verbose_name='Автор')
     title = models.CharField(verbose_name="Заголовок", max_length=200)
     slug = models.SlugField(verbose_name="Адрес страницы")
     url = models.CharField(verbose_name='URL', max_length=2500)
