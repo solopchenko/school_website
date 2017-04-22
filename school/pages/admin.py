@@ -31,7 +31,12 @@ class PageAdmin(admin.ModelAdmin):
             obj.url = obj.parent.url + '/' + obj.slug
         else:
             obj.url = obj.slug
-            
         super(PageAdmin, self).save_model(request, obj, form, change)
+
+    def get_queryset(self, request):
+        qs = super(PageAdmin, self).get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(author=request.user)
 
 admin.site.register(Page, PageAdmin)
