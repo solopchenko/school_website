@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from app.utils import get_now
 from .managers import ArticleManager
 
 # Create your models here.
@@ -12,8 +13,18 @@ class Article(models.Model):
     created_at = models.DateTimeField(verbose_name='Дата создания', auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name='Дата обновления', auto_now=True)
     is_published = models.BooleanField(verbose_name='Опубликовать', default=True)
+    published_at = models.DateTimeField(verbose_name='Дата публикации', null=True, blank=True)
 
     objects = ArticleManager()
+
+    def save(self, *args, **kwargs):
+        #Установка даты публикации в зависимсти от is_published
+        if self.is_published:
+            if self.published_at is None:
+                self.published_at = get_now()
+        else:
+            self.published_at = None
+        super(Article, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
         return "/news/{0}".format(self.pk)
