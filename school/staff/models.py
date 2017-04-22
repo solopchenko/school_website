@@ -51,3 +51,15 @@ class Person(models.Model):
         verbose_name = 'Сотрудник'
         verbose_name_plural = 'Сотрудники'
         ordering = ['last_name', 'first_name', 'middle_name']
+
+class PersonTab(models.Model):
+    person = models.ForeignKey(Person, on_delete=models.CASCADE, verbose_name="Сотрудник")
+    name = models.CharField(max_length=100, verbose_name="Имя вкладки")
+    content = models.TextField(verbose_name="Контент вкладки")
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Вкладка'
+        verbose_name_plural = 'Вкладки'
