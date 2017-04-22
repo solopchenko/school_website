@@ -15,6 +15,9 @@ class Article(models.Model):
 
     objects = ArticleManager()
 
+    def get_absolute_url(self):
+        return "/news/{0}".format(self.pk)
+
     def __str__(self):
         return self.title
 
