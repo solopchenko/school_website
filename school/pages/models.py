@@ -13,6 +13,7 @@ class Page(models.Model):
     url = models.CharField(verbose_name='URL', max_length=2500)
     created_at = models.DateTimeField(verbose_name="Дата создания", auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name="Дата последнего изменения", auto_now=True)
+    is_published = models.BooleanField(verbose_name='Опубликовать', default=True)
 
     parent = models.ForeignKey('self', verbose_name="Родительская страница", on_delete=models.PROTECT, null=True, blank=True)
 
