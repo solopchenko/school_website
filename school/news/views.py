@@ -5,7 +5,7 @@ from .models import Article
 
 # Create your views here.
 def news_detail(request, article_id):
-    article = get_object_or_404(Article, pk=article_id, is_published=True)
+    article = get_object_or_404(Article.objects.published(), pk=article_id)
     context = { 'article': article }
     template = 'news/article.html'
     return render(request, template, context)
