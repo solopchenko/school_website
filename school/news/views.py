@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
-from django.views import View
 from .models import Article
 
 # Create your views here.
