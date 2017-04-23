@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.db.models.signals import post_delete, pre_save, post_save
 from .utils import get_user_profile_photo_upload_to
 
 # Create your models here.
@@ -54,6 +55,25 @@ class Person(models.Model):
         verbose_name = 'Сотрудник'
         verbose_name_plural = 'Сотрудники'
         ordering = ['last_name', 'first_name', 'middle_name']
+
+#Автоматическое удаление фото при удалении пользователя
+@receiver(post_delete, sender=Person)
+def auto_delete_file_on_delete(sender, instance, **kwargs):
+    if instance.photo:
+        instance.photo.delete(save=False)
+
+#Автоматическое удаление старого фото при изменении информации о пользователе
+@receiver(pre_save, sender=Person)
+def auto_delte_file_on_change(sender, instance, **kwargs):
+    #Если изменяем модель
+    if instance.pk:
+        old_instance = Document.objects.get(pk=instance.pk)
+        old_photo = old_instance.photo if old_instance.photo else None
+        new_photo = instance.photo
+
+        if not old_photo == new_photo:
+            old_photo.delete(save=False)
+
 
 class PersonTab(models.Model):
     person = models.ForeignKey(Person, on_delete=models.CASCADE, verbose_name="Сотрудник")
