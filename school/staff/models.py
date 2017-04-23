@@ -44,6 +44,9 @@ class Person(models.Model):
             str_positions = str_positions + ', ' + position
         return str_positions
 
+    def tabs(self):
+        return self.persontab_set.all()
+
     def __str__(self):
         return self.full_name()
 
