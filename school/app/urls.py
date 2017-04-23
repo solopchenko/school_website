@@ -33,6 +33,10 @@ urlpatterns = [
     #
     url(r'^news/', include('news.urls')),
 
+    # Сотрудники
+    #
+    url(r'^staff/', include('staff.urls')),
+
     # Страницы
     #
     url(r'^', include('pages.urls')),
