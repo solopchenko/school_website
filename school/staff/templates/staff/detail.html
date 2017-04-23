@@ -1,0 +1,40 @@
+{% extends 'core/base.html' %}
+
+{% block title %} {{ person.full_name }} {% endblock title %}
+
+{% block breadcrumbs %}
+  → <a href="/staff" class="breadcrumbs__item link link_blue">Сотрудники</a>
+  → <h1 class="breadcrumbs__item breadcrumbs__item_current">{{ person.full_name }}</h1>
+{% endblock breadcrumbs %}
+
+{% block content %}
+<div class="section">
+            <div class="container">
+                <div class="title title_xl">{{ person.full_name }}</div>
+
+                <div class="row">
+                    <div class="row__col row__col_size_one-third">
+                        <img src="http://placehold.it/220x240">
+                    </div>
+
+                    <div class="row__col row__col_size_two-thirds">
+                        {% if person.positions.all %}
+                        <div class="field">
+                            <div class="field__label">Должность</div>
+                            {% for position in person.positions.all %}
+                            <div>{{ position.name }}</div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+
+                        <div class="field">
+                            <div class="field__label">Контакты</div>
+                            <div>{{ person.office }}</div>
+                            <div>{{ person.phone }}</div>
+                            <div><a class="link link_blue" href="mailto:{{ person.email }}">{{ person.email }}</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock content %}

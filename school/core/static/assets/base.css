@@ -118,4 +118,9 @@ body {
     color: #888;
     font-size: 1.2rem; }
 
+.field {
+  margin-bottom: 2rem; }
+  .field__label {
+    font-weight: 600; }
+
 /*# sourceMappingURL=base.css.map */
