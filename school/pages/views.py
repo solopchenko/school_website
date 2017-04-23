@@ -4,10 +4,8 @@ from django.views import View
 from .models import Page
 
 # Create your views here.
-class PageView(View):
-    def get(self, request, page_url, *args, **kwargs):
-        page = get_object_or_404(Page, url=page_url)
-
-        context = { 'page': page }
-        template = 'pages/page.html'
-        return render(request, template, context)
+def pages_detail(request, page_url):
+    page = get_object_or_404(Page.objects.published(), url=page_url)
+    context = { 'page': page }
+    template = 'pages/page.html'
+    return render(request, template, context)

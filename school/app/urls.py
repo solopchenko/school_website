@@ -18,7 +18,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from core.views import HomeView
-from pages.views import PageView
 
 urlpatterns = [
 
@@ -36,7 +35,7 @@ urlpatterns = [
 
     # Страницы
     #
-    url(r'^(?P<page_url>[/\w-]*)/$', PageView.as_view()),
+    url(r'^', include('pages.urls')),
 ]
 
 if settings.DEBUG:
