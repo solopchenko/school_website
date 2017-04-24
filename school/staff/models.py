@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.dispatch import receiver
 from django.db.models.signals import post_delete, pre_save, post_save
 from .utils import get_user_profile_photo_upload_to
 
@@ -71,7 +72,7 @@ def auto_delte_file_on_change(sender, instance, **kwargs):
         old_photo = old_instance.photo if old_instance.photo else None
         new_photo = instance.photo
 
-        if not old_photo == new_photo:
+        if not old_photo == new_photo and old_photo is not None:
             old_photo.delete(save=False)
 
 
