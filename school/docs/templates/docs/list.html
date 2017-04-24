@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %}
+
+{% block title %} Документы {% endblock title %}
+
+{% block breadcrumbs %}
+  → <h1 class="breadcrumbs__item breadcrumbs__item_current">Документы</h1>
+{% endblock breadcrumbs %}
+
+{% block content %}
+  <div class="section">
+      <div class="container">
+        {% for document in documents %}
+        <ol class="list list_numbers">
+          {% if document.paper %}
+          <li><a class="link link_blue" href="{{ document.paper.url }}">{{ document.title }}</a></li>
+          {% else %}
+          <li><a class="link link_blue" href="{{ document.link }}" target="_blank">{{ document.title }}</a></li>
+          {% endif %}
+        </ol>
+        {% endfor %}
+      </div>
+  </div>
+{% endblock content %}
