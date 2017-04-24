@@ -84,5 +84,5 @@ def auto_delte_file_on_change(sender, instance, **kwargs):
         old_background_image = old_instance.background_image if old_instance.background_image else None
         new_background_image = instance.background_image
 
-        if not old_background_image == new_background_image:
+        if not old_background_image == new_background_image and old_background_image is not None:
             old_background_image.delete(save=False)
