@@ -37,6 +37,10 @@ urlpatterns = [
     #
     url(r'^staff/', include('staff.urls')),
 
+    # Документы
+    #
+    url(r'^docs/', include('docs.urls')),
+
     # Страницы
     #
     url(r'^', include('pages.urls')),
