@@ -10,6 +10,8 @@ class Category(models.Model):
     is_public = models.BooleanField(verbose_name='Отображать на странице документов', default=False)
     description = models.TextField(verbose_name='Описание', blank=True)
 
+    objects = CategoryManager()
+
     def documents(self):
         return self.document_set.all()
 
