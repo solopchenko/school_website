@@ -1,14 +1,42 @@
 
-<div class="section">
-    <div class="container footer">
-        <div class="row">
-            <div class="row__col row__col_size_two-thirds row__col_offset_one-third">
-                <div class="copyright">
-                    <div class="copyright__title">&copy; {{ site.title }} {% now "Y" %}</div>
-                    <div class="copyright__rights">При полном или частичном использовании материалов сайта ссылка обязательна.</div>
-                    <div class="copyright__madeby">Сделал <a class="link link_gray" href="http://solopchenko.net" target="_blank">Святослав Солопченко</a> в 2017 году.</div>
-                </div>
-            </div>
+<div class="section footer">
+      {% if footer_menu %}
+      <div class="row">
+        {% for menu in footer_menu %}
+          <div class="row__col row__col_size_one-thrids">
+            <ul class="footer-nav">
+                <li class="footer-nav__title">
+                {% if menu.page %}
+                  <a class="link link_black" href="/{{ menu.page.url }}">{{ menu.name }}</a>
+                {% elif menu.link %}
+                  <a class="link link_black" href="{{ menu.link }}" target="_blank">{{ menu.name }}</a>
+                {% else %}
+                  {{ menu.name }}
+                {% endif %}
+                </li>
+
+                {% for item in menu.items %}
+                <li>
+                {% if item.page %}
+                  <a class="link link_blue" href="/{{ item.page.url }}">{{ item.title }}</a>
+                {% else %}
+                  <a class="link link_blue" href="{{ item.link }}" target="_blank">{{ item.title }}</a>
+                {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+          </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <div class="row">
+        <div class="row__col row__col_size_two-thirds row__col_offset_one-third">
+          <div class="copyright">
+            <div class="copyright__title">&copy; {{ site.title }} {% now "Y" %}</div>
+            <div class="copyright__rights">При полном или частичном использовании материалов сайта ссылка обязательна.</div>
+            <div class="copyright__madeby">Сделал <a class="link link_gray" href="http://solopchenko.net" target="_blank">Святослав Солопченко</a> в 2017 году.</div>
+          </div>
         </div>
-    </div>
+      </div>
 </div>
