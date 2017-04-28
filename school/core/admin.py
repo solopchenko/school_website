@@ -1,9 +1,8 @@
 from django.contrib import admin
-from .models import Site
+from .models import Site, Menu, MenuItem
 
 # Register your models here.
 class SiteAdmin(admin.ModelAdmin):
-
     #Скрывает кнопку добавления нового элемента, если хотя бы один элемент уже есть
     def has_add_permission(self, request):
         if self.model.objects.count() > 0:
@@ -17,3 +16,15 @@ class SiteAdmin(admin.ModelAdmin):
         return super(SiteAdmin, self).has_delete_permission(request)
 
 admin.site.register(Site, SiteAdmin)
+
+class MenuItemInline(admin.TabularInline):
+    model = MenuItem
+    fields = ('title', 'page', 'link', )
+
+class MenuAdmin(admin.ModelAdmin):
+    fields = ('name', 'position', 'page', 'link', )
+    list_display = ('name', 'position', )
+    list_filter = ('position', )
+    inlines = (MenuItemInline, )
+
+admin.site.register(Menu, MenuAdmin)
