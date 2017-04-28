@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.db.models.signals import post_delete, pre_save, post_save
+from django.core.urlresolvers import reverse
 from django.dispatch import receiver
 from .utils import get_slide_upload_to
 from .managers import PageManager
@@ -31,6 +32,9 @@ class Page(models.Model):
             pg = pg.parent
             pages.append(pg)
         return pages
+
+    def get_absolute_url(self):
+        return reverse('pages_detail', args=[str(self.url)])
 
     def __str__(self):
         return self.title
